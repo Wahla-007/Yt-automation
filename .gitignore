@@ -1,0 +1,25 @@
+# Environment & secrets
+.env
+credentials/*.json
+!credentials/.gitkeep
+
+# Data and output
+data/downloads/*
+data/output/*
+data/*.db
+data/*.db-journal
+!data/.gitkeep
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# OS files
+.DS_Store
+Thumbs.db

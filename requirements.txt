@@ -1,0 +1,27 @@
+# Core & Configuration
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+requests>=2.31.0
+
+# Google Sheets
+gspread>=6.0.0
+google-auth>=2.28.0
+
+# Video & Audio Download / Processing
+yt-dlp>=2024.3.10
+youtube-transcript-api>=0.6.2
+faster-whisper>=1.0.0
+
+# AI & Voice
+openai>=1.14.0
+edge-tts>=6.1.10
+
+# YouTube Publishing
+google-api-python-client>=2.120.0
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
+
+# Messaging & Approval
+python-telegram-bot>=21.0
+twilio>=9.0.0
