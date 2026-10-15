@@ -64,16 +64,21 @@ def download_youtube_video(
         )
         return info
 
+    cookie_file = config.CREDENTIALS_DIR / "cookies.txt"
+
     ydl_opts = {
         "format": "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
         "outtmpl": str(out_dir / f"{video_id}.%(ext)s"),
         "merge_output_format": "mp4",
         "ffmpeg_location": config.FFMPEG_BINARY,
+        "remote_components": ["ejs:github"],
         "quiet": False,
-        "no_warnings": True,
+        "no_warnings": False,
         "retries": 3,
         "socket_timeout": 30,
     }
+    if cookie_file.exists():
+        ydl_opts["cookiefile"] = str(cookie_file)
 
     last_error = None
     for attempt in range(1, max_retries + 1):
