@@ -67,10 +67,10 @@ def cut_and_format_clip(
         "-map", "[vout]",
         "-map", "[aout]",
         "-c:v", "libx264",
-        "-preset", "fast",
-        "-crf", "20",
+        "-preset", "medium",
+        "-crf", "17",
         "-c:a", "aac",
-        "-b:a", "192k",
+        "-b:a", "256k",
         "-movflags", "+faststart",
         output_path,
     ]

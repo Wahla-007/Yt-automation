@@ -65,7 +65,7 @@ def download_youtube_video(
         return info
 
     ydl_opts = {
-        "format": "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best[height<=720]/best",
+        "format": "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/best",
         "outtmpl": str(out_dir / f"{video_id}.%(ext)s"),
         "merge_output_format": "mp4",
         "ffmpeg_location": config.FFMPEG_BINARY,

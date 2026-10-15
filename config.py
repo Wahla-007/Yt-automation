@@ -81,6 +81,7 @@ SAFETY_END_TRIM = float(os.getenv("SAFETY_END_TRIM", "0.12"))
 
 # Voiceover (edge-tts)
 TTS_VOICE = os.getenv("TTS_VOICE", "en-US-ChristopherNeural")
+VOICEOVER_VOLUME = float(os.getenv("VOICEOVER_VOLUME", "0.03"))  # 0.03 = 3% volume (subtle background for algorithm, 100% real voice for human)
 
 # State Database
 DATABASE_PATH = os.getenv("DATABASE_PATH", str(DATA_DIR / "pipeline.db"))

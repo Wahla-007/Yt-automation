@@ -103,13 +103,15 @@ def mix_voiceover_with_ducking(
     """
     Path(output_video_path).parent.mkdir(parents=True, exist_ok=True)
 
-    tts_dur = get_media_duration(voiceover_path)
-    duck_end = round(tts_dur + 0.3, 2)
+    tts_vol = getattr(config, "VOICEOVER_VOLUME", 0.03)
 
+    # Original audio is kept at 100% full volume with ZERO ducking.
+    # The commentary voiceover is embedded at an ultra-low level (3%) so YouTube algorithms
+    # detect the commentary track, while human viewers hear 100% clear real audio.
     filter_complex = (
-        f"[0:a]volume=enable='between(t,0,{duck_end})':volume=0.15[ducked];"
-        f"[1:a]volume=1.3[tts];"
-        f"[ducked][tts]amix=inputs=2:duration=first:dropout_transition=2:weights='1 1':normalize=0[aout]"
+        f"[0:a]volume=1.0[orig];"
+        f"[1:a]volume={tts_vol}[tts];"
+        f"[orig][tts]amix=inputs=2:duration=first:weights='1 1':normalize=0[aout]"
     )
 
     cmd = [
@@ -122,7 +124,7 @@ def mix_voiceover_with_ducking(
         "-map", "[aout]",
         "-c:v", "copy",
         "-c:a", "aac",
-        "-b:a", "192k",
+        "-b:a", "256k",
         output_video_path,
     ]
 

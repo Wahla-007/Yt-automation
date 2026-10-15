@@ -189,8 +189,8 @@ def burn_captions(
         "-i", video_path,
         "-vf", f"ass='{escaped_ass}'",
         "-c:v", "libx264",
-        "-preset", "fast",
-        "-crf", "18",
+        "-preset", "medium",
+        "-crf", "17",
         "-c:a", "copy",
         output_video_path,
     ]
