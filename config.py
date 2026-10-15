@@ -107,3 +107,8 @@ if FFMPEG_BINARY and os.path.exists(FFMPEG_BINARY):
     _ffmpeg_dir = str(Path(FFMPEG_BINARY).parent)
     if _ffmpeg_dir not in os.environ.get("PATH", ""):
         os.environ["PATH"] = _ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+
+# Deno JavaScript runtime for YouTube extraction in yt-dlp
+_deno_dir = r"C:\Users\abdul\AppData\Local\Microsoft\WinGet\Packages\DenoLand.Deno_Microsoft.Winget.Source_8wekyb3d8bbwe"
+if os.path.exists(_deno_dir) and _deno_dir not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = _deno_dir + os.pathsep + os.environ.get("PATH", "")

@@ -1,7 +1,8 @@
 # Environment & secrets
 .env
-credentials/*.json
+credentials/*
 !credentials/.gitkeep
+*.exe
 
 # Data and output
 data/downloads/*
